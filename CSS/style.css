@@ -1,0 +1,2 @@
+/* Class for keeping divs hidden until JavaScript determines they should be shown. */
+.hidden { visibility: hidden; }

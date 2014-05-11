@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title>The best RPG evah!</title>
+		<link rel="stylesheet" type="text/css" href="CSS/style.css" />
+
+		<script language="javascript" type="text/javascript" src="JS/character.js"></script>
+		<script language="javascript" type="text/javascript" src="JS/encounter.js"></script>
+
+	</head>
+
+	<body>
+		<div id="charRoll">
+			
+			<!-- This form is for gathering user input to determine the character name and the weapon of choice.
+			Currently weapons have no effect on gameplay. -->
+			<form id="charForm">
+				Character Name: <input type="text" name="charname" id="charname" /><br />
+				Select Weapon: <select name = "weapon" id="weapon">
+					<option value="sword">Sword - Faster Attack</option>
+					<option value="axe">Axe - Increased Damage</option>
+					<option value="mace">Mace - Increased Hit Chance</option>
+				</select><br />
+
+				<!-- Notice that this button, upon clicking, calls the charFill function.
+				The argument passed through to the function is this.form
+				To understand how this works, remember that everything in JavaScript is an
+				object. this selects the current object, and .form specifies that it is a
+				form object that you want. Therefore, the charFill function knows where
+				to look to find the values that it assigns to the charname and weapon variables. -->
+				<input type="button" value="Submit" name="charSubmit" onclick="charFill(this.form)">
+			</form>
+		</div>
+
+		<!-- All divs below this are are hidden until the submit button above is clicked.
+		Notice also that divs can have both classes and ids simultaneously. Javascript
+		finds objects by ids. You can still use CSS ids too. -->
+
+		<!-- JavaScript imports information about the character here. -->
+		<div id="charInfo" class="hidden">
+		</div>
+
+		<!-- To have JavaScript import information regarding the monster here, just as it
+		does with the character. Have not written this function yet. -->
+		<div id = "monsterInfo" class="hidden">
+		</div>
+
+		<!-- JavaScript imports status reports during an encounter here. -->
+		<div id ="encounter" class="hidden">
+		</div>
+
+		<!-- These buttons govern player actions. run() function is not written yet. -->
+		<div id="charActions" class="hidden">
+			<button onclick="attack()">ATTACK</button><br />
+			<button onclick="run()">RUN</button>
+		</div>
+
+		<!-- This div is not displayed when submit is clicked. Once the player wins an 
+		encounter, this div will be displayed. The function for winning has not been
+		written yet. -->
+		<div id ="next" class="hidden">
+			<button onclick="encounter()">Next encounter!</button>
+		</div>
+	</body>
+</html>
